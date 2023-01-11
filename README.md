@@ -1,7 +1,5 @@
 [//]: # ([**📄README-EN**]&#40;README-EN.md&#41;)
 
--------------------------------------------------------------------------------
-
 <div>
     <img 
         src="./hyper-logo/hyper-logo.svg"
@@ -10,8 +8,6 @@
     >
     更强？更简？不，我都要！
 </div>
-
--------------------------------------------------------------------------------
 
 [![](https://img.shields.io/badge/JDK-17+-green?logo=Jdk)](https://gradle.org)
 [![](https://img.shields.io/badge/Gradle-v7%2E6-g?logo=Gradle)](https://gradle.org)

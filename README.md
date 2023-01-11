@@ -1,22 +1,13 @@
-<style>
-    #logo {
-        will-change: filter;
-    }
-    #logo:hover {
-        filter: drop-shadow(0 0 5px #2e1891b7);
-    }
-</style>
-
 [//]: # ([**📄README-EN**]&#40;README-EN.md&#41;)
 
-<p id="logo">
+<div>
     <img 
         src="./hyper-logo/hyper-logo.svg"
         width="200px"
-        alt=""
+        alt="hyper-logo"
     >
-   更强？更简？不，我都要！
-</p>
+    更强？更简？不，我都要！
+</div>
 
 [![](https://img.shields.io/badge/JDK-17+-green?logo=Jdk)](https://gradle.org)
 [![](https://img.shields.io/badge/Gradle-v7%2E6-g?logo=Gradle)](https://gradle.org)
@@ -26,13 +17,13 @@
 ### 📢 声明
 
 > hyper 是本项目及其所有子组件的统称
-> 
+>
 > hyper-libs 为虚拟目录，仅是为了方便组件的分类而创建，其本身并不是一个有效的子组件
-> 
+>
 > 本项目下所有有效的子组件（包括但不限于 logo、模块等）所使用的开源许可证均由其（指子组件本身）根目录下的许可证文件指定
-> 
+>
 > 如有未明确指定开源许可证（指许可证文件不存在）的组件，均为仅托管内容且闭源的组件
-> 
+>
 > 基于本项目的任何作品必须遵守其（指基于本项目的作品）所继承的组件（指本项目下的组件）所使用的开源许可证中的所有条款
 
 -------------------------------------------------------------------------------
@@ -51,12 +42,12 @@
 |------------------------|---------------------------|--------------------|
 | hyper-logo             | hyper 项目集的专属 logo         | 无                  |
 | hyper-gradle-util      | 开发 hyper 插件时必装的 gradle 插件 | Apache 2.0 license |
-| hyper-commons          | 公共工具                      | Apache 2.0 license |
-| hyper-annotations      | 全局注解                      | Apache 2.0 license |
-| hyper-events-listeners | 事件与监听器                    | Apache 2.0 license |
-| hyper-commands         | 命令                        | Apache 2.0 license |
-| hyper-resources        | 资源                        | Apache 2.0 license |
-| hyper-tasks-executor   | 任务与执行者                    | Apache 2.0 license |
+| hyper-commons          | 公共工具相关                    | Apache 2.0 license |
+| hyper-annotations      | 全局注解相关                    | Apache 2.0 license |
+| hyper-events-listeners | 事件与监听器相关                  | Apache 2.0 license |
+| hyper-commands         | 命令相关                      | Apache 2.0 license |
+| hyper-resources        | 资源相关                      | Apache 2.0 license |
+| hyper-tasks-executor   | 任务与执行者相关                  | Apache 2.0 license |
 | hyper-core             | hyper 插件在编译和运行时的必要核心前置    | GPLv3              |
 | ……                     | 更多模块敬请期待                  | 无                  |
 
@@ -67,21 +58,23 @@ hyper 插件：指依赖 hyper 项目下任何组件的 `我的世界插件`
 ### ⚙ 使用
 
 #### Maven
+
 ```xml
    <!-- pom.xml -->
-   <dependency>
-      <groupId>pres.ketikai.hyper</groupId>
-      <artifactId>hyper</artifactId>
-      <version>${version}</version>
-   </dependency>
+<dependency>
+    <groupId>pres.ketikai.hyper</groupId>
+    <artifactId>hyper</artifactId>
+    <version>${version}</version>
+</dependency>
 ```
 
 #### Gradle
+
 ```kotlin
    /* build.gradle.kts */
-   dependencies {
-      compileOnly("pres.ketikai.hyper:hyper:${version}")
-   }
+dependencies {
+    compileOnly("pres.ketikai.hyper:hyper:${version}")
+}
 ```
 
 ### ⬇️ 下载
@@ -94,6 +87,7 @@ hyper 插件：指依赖 hyper 项目下任何组件的 `我的世界插件`
 2. 选择 `master` 或 `dev` 分支，下载项目源码
 3. 进入项目根目录 `cd ./hyper`
 4. 执行 gradle 打包任务，如下：
+
 ```shell
    # 打包所有模块
    ./gradlew clean jar

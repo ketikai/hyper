@@ -14,7 +14,7 @@
 [![](https://img.shields.io/badge/邮箱-482194973%40qq%2Ecom-orange?logo=Mail%2ERu)]()
 [![](https://img.shields.io/badge/QQ群-929450805-blue?logo=Tencent%20QQ)](https://qm.qq.com/cgi-bin/qm/qr?k=M8BRtN-w29gUFbp83PHOOoHDmNga4miz&jump_from=webapi)
 
-### 📢 声明
+### 📢 声明（请仔细阅读）
 
 > hyper 是本项目及其所有子组件的统称
 > 
@@ -121,7 +121,7 @@ hyper 插件：指依赖 hyper 项目下任何组件的 `我的世界插件`
 
 ### 🐞 反馈
 
-> 反馈 bug 时请提供出现问题时所使用的 jdk 、hyper 和其他相关依赖库的版本、配置等信息。
+反馈 bug 时请提供出现问题时所使用的 jdk 、hyper 和其他相关依赖库的版本、配置等信息。
 
 * [GitHub Issue](https://github.com/ketikai/hyper/issues)
 
@@ -130,7 +130,7 @@ hyper 插件：指依赖 hyper 项目下任何组件的 `我的世界插件`
 非常高兴有人会为 hyper 贡献，不过为了让 hyper 看起来更棒，就不得不提出一些相应的规范。
 仔细阅读下列内容，对你所贡献的内容是否能够通过审核很有帮助！
 
-> #### 📏 一些规范
+#### 📏 一些规范
 >
 > * 重要！！！尽量避免使用任何来自第三方库的内容（除了 `hyper-core` 和 `hyper-commons` 模块）
 > * 统一缩进，即 4 个空格

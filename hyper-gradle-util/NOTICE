@@ -1,14 +1,14 @@
 
-Hyper-Gradle-Util
+hyper-gradle-util
 Copyright 2023 ketikai
 
 The open source code for this project is currently hosted on GitHub.
-(https://github.com/ketikai/hyper-gradle-util)
+(https://github.com/ketikai/hyper)
 
 ========================================================================
-Hyper-Gradle-Util Subcomponents:
+hyper-gradle-util Subcomponents:
 
-The Hyper-Gradle-Util project contains subcomponents with separate copyright
+The hyper-gradle-util project contains subcomponents with separate copyright
 notices and license terms. Your use of the source code for the these
 subcomponents is subject to the terms and conditions of the following
 licenses.
@@ -20,7 +20,7 @@ Apache 2.0 licenses
 The following components are provided under the Apache License. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   proto files from ketikai: https://github.com/ketikai/hyper-commons (Apache 2.0 license)
+   proto files from ketikai: https://github.com/ketikai/hyper (Apache 2.0 license)
 ========================================================================
 BSD licenses
 ========================================================================
@@ -28,5 +28,5 @@ BSD licenses
 The following components are provided under a BSD license. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   proto files from ow2: https://gitlab.ow2.org/asm/asm (BSD 3-Clause)
+   (Up to now, the hyper-gradle-util project has not referenced components provided by this license.)
 ========================================================================

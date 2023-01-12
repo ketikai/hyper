@@ -17,8 +17,8 @@
 
 package pres.ketikai.hyper.core.thread;
 
-import pres.ketikai.hyper.core.caller.Caller;
-import pres.ketikai.hyper.core.caller.Callers;
+import pres.ketikai.hyper.commons.caller.Caller;
+import pres.ketikai.hyper.commons.caller.Callers;
 import pres.ketikai.hyper.core.thread.factory.WorkerThreadFactory;
 
 import java.util.concurrent.*;

@@ -8,7 +8,7 @@ version = "0.0.2-SNAPSHOT"
 
 dependencies {
     // spring
-    api("org.springframework:spring-core:6.0.3")
+    api("org.springframework:spring-aop:6.0.3")
 
     // jackson
     api("com.fasterxml.jackson.core:jackson-databind:2.14.1")
@@ -27,9 +27,9 @@ dependencies {
     api("org.apache.maven.resolver:maven-resolver-transport-file:1.9.2")
     api("org.apache.maven.resolver:maven-resolver-connector-basic:1.9.2")
 
-    // log
-    implementation("ch.qos.logback:logback-core:1.4.5")
-    implementation("ch.qos.logback:logback-classic:1.4.5")
+    // asm
+    api("org.ow2.asm:asm:9.4")
+    api("org.ow2.asm:asm-commons:9.4")
 }
 
 java {

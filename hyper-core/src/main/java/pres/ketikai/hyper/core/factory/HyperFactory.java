@@ -18,7 +18,7 @@
 package pres.ketikai.hyper.core.factory;
 
 import org.springframework.cglib.proxy.Enhancer;
-import pres.ketikai.hyper.common.util.Asserts;
+import pres.ketikai.hyper.commons.Asserts;
 
 import java.util.Iterator;
 import java.util.Map;

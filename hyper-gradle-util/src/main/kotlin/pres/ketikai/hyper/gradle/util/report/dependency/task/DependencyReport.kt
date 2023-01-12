@@ -29,7 +29,7 @@ import org.gradle.api.tasks.diagnostics.internal.ConfigurationDetails
 import org.gradle.api.tasks.diagnostics.internal.graph.nodes.RenderableDependency
 import org.gradle.api.tasks.diagnostics.internal.graph.nodes.RenderableDependencyResult
 import org.gradle.api.tasks.diagnostics.internal.graph.nodes.RenderableModuleResult
-import pres.ketikai.hyper.common.util.JSONUtils
+import pres.ketikai.hyper.commons.json.JSONUtils
 import pres.ketikai.hyper.gradle.util.report.dependency.DependencyScope
 import java.io.File
 import java.nio.charset.Charset

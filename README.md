@@ -41,13 +41,14 @@
 | 模块                     | 简介                        | 开源许可证（闭源则无）        |
 |------------------------|---------------------------|--------------------|
 | hyper-logo             | hyper 项目集的专属 logo         | 无                  |
-| hyper-gradle-util      | 开发 hyper 插件时必装的 gradle 插件 | Apache 2.0 license |
-| hyper-commons          | 公共工具                      | Apache 2.0 license |
-| hyper-annotations      | 全局注解                      | Apache 2.0 license |
-| hyper-events-listeners | 事件与监听器                    | Apache 2.0 license |
-| hyper-commands         | 命令                        | Apache 2.0 license |
-| hyper-resources        | 资源                        | Apache 2.0 license |
-| hyper-tasks-executor   | 任务与执行者                    | Apache 2.0 license |
+| hyper-gradle-util      | 开发 hyper 插件时必装的 gradle 插件 | Apache 2.0 License |
+| hyper-commons          | 公共工具相关                    | Apache 2.0 License |
+| hyper-annotations      | 全局注解相关                    | Apache 2.0 License |
+| hyper-events-listeners | 事件与监听器相关                  | Apache 2.0 License |
+| hyper-commands         | 命令相关                      | Apache 2.0 License |
+| hyper-resources        | 资源相关                      | Apache 2.0 License |
+| hyper-tasks-executors  | 任务与执行者相关                  | Apache 2.0 License |
+| hyper-stores           | 数据存储相关                    | Apache 2.0 License |
 | hyper-core             | hyper 插件在编译和运行时的必要核心前置    | GPLv3              |
 | ……                     | 更多模块敬请期待                  | 无                  |
 
@@ -131,7 +132,7 @@ hyper 插件：指依赖 hyper 项目下任何组件的 `我的世界插件`
 
 > #### 📏 一些规范
 >
-> * 重要！！！不能使用任何来自第三方库的内容（除了 `hyper-core` 和 `hyper-commons` 模块）
+> * 重要！！！尽量避免使用任何来自第三方库的内容（除了 `hyper-core` 和 `hyper-commons` 模块）
 > * 统一缩进，即 4 个空格
 > * 任何可能会被开放调用的类、方法等内容，都需要为其添加说明注释（包括但不限于描述、参数、返回值、异常等必要说明）
 > * 贡献者可以在其添加或修改的内容上的说明注释中留下其名字，但不能随意地更改或删除已存在的其他贡献者的名字

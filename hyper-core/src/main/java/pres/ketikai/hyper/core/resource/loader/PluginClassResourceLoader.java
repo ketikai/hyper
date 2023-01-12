@@ -19,7 +19,7 @@ package pres.ketikai.hyper.core.resource.loader;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
-import pres.ketikai.hyper.common.util.Asserts;
+import pres.ketikai.hyper.commons.Asserts;
 import pres.ketikai.hyper.core.resource.ResourceLoader;
 
 import java.io.IOException;

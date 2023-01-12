@@ -17,7 +17,7 @@
 
 package pres.ketikai.hyper.core.thread.factory;
 
-import pres.ketikai.hyper.common.util.Asserts;
+import pres.ketikai.hyper.commons.Asserts;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

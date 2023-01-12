@@ -26,8 +26,8 @@ import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPluginLoader;
 import org.spigotmc.CustomTimingsHandler;
 import org.springframework.core.annotation.AnnotationUtils;
-import pres.ketikai.hyper.core.property.annotation.HyperPropSource;
-import pres.ketikai.hyper.core.resource.annotation.HyperResource;
+import pres.ketikai.hyper.annotations.property.HyperPropSource;
+import pres.ketikai.hyper.annotations.resources.HyperResource;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

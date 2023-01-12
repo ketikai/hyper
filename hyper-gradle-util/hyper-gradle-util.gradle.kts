@@ -9,9 +9,6 @@ version = "1.0.6-SNAPSHOT"
 
 dependencies {
     api(project(":hyper-libs:hyper-commons"))
-    implementation("org.apache.maven.resolver:maven-resolver-api:1.9.2")
-    implementation("org.ow2.asm:asm:9.4")
-    implementation("org.ow2.asm:asm-commons:9.4")
 }
 
 gradlePlugin {

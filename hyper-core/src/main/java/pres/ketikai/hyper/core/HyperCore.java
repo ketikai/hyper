@@ -19,7 +19,7 @@ package pres.ketikai.hyper.core;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import pres.ketikai.hyper.core.annotation.HyperPlugin;
+import pres.ketikai.hyper.annotations.HyperPlugin;
 import pres.ketikai.hyper.core.resource.Resources;
 
 /**

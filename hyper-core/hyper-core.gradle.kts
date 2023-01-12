@@ -1,6 +1,6 @@
+import pres.ketikai.hyper.gradle.util.bukkit.boot.BukkitLoadType
 import pres.ketikai.hyper.gradle.util.dependencyReport
 import pres.ketikai.hyper.gradle.util.hyperBukkit
-import pres.ketikai.hyper.gradle.util.bukkit.boot.BukkitLoadType
 
 plugins {
     id("java")
@@ -26,8 +26,14 @@ dependencies {
     // spigot-mc
     compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
 
-    // common
+    // hyper-libs
+    api(project(":hyper-libs:hyper-annotations"))
+    api(project(":hyper-libs:hyper-commands"))
     api(project(":hyper-libs:hyper-commons"))
+    api(project(":hyper-libs:hyper-events-listeners"))
+    api(project(":hyper-libs:hyper-resources"))
+    api(project(":hyper-libs:hyper-stores"))
+    api(project(":hyper-libs:hyper-tasks-executors"))
 
     // aop
     implementation("org.springframework:spring-aop:6.0.3")
@@ -35,10 +41,6 @@ dependencies {
     // security
     implementation("org.springframework.security:spring-security-crypto:6.0.1")
     implementation("org.bouncycastle:bcprov-jdk15on:1.70")
-
-    // logger
-    implementation("ch.qos.logback:logback-core:1.4.5")
-    implementation("ch.qos.logback:logback-classic:1.4.5")
 
     // dev
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.0.1")

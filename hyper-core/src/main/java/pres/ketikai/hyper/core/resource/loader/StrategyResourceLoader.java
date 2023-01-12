@@ -17,7 +17,7 @@
 
 package pres.ketikai.hyper.core.resource.loader;
 
-import pres.ketikai.hyper.common.util.Asserts;
+import pres.ketikai.hyper.commons.Asserts;
 import pres.ketikai.hyper.core.resource.ResourceLoader;
 
 import java.io.File;

@@ -1,14 +1,14 @@
 
-Hyper-Commons
+hyper-commons
 Copyright 2023 ketikai
 
 The open source code for this project is currently hosted on GitHub.
-(https://github.com/ketikai/hyper-commons)
+(https://github.com/ketikai/hyper)
 
 ========================================================================
-Hyper-Commons Subcomponents:
+hyper-commons Subcomponents:
 
-The Hyper-Commons project contains subcomponents with separate copyright
+The hyper-commons project contains subcomponents with separate copyright
 notices and license terms. Your use of the source code for the these
 subcomponents is subject to the terms and conditions of the following
 licenses.
@@ -20,7 +20,11 @@ Apache 2.0 licenses
 The following components are provided under the Apache License. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   (Up to now, the Hyper-Commons project has not referenced components provided by this license.)
+   proto files from spring: https://github.com/spring-projects/spring-framework (Apache 2.0 License)
+   proto files from apache: https://github.com/apache/maven (Apache 2.0 License)
+   proto files from apache: https://github.com/apache/maven-resolver (Apache 2.0 License)
+   proto files from FasterXML: https://github.com/FasterXML/jackson (Apache 2.0 License)
+   proto files from snakeyaml: https://github.com/snakeyaml/snakeyaml (Apache 2.0 License)
 ========================================================================
 BSD licenses
 ========================================================================

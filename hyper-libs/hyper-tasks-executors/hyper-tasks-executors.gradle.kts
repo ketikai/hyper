@@ -7,6 +7,8 @@ plugins {
 version = "0.0.1-SNAPSHOT"
 
 dependencies {
+    api(project(":hyper-libs:hyper-annotations"))
+    api(project(":hyper-libs:hyper-commons"))
 }
 
 java {

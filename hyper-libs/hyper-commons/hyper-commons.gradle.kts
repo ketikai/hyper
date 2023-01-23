@@ -4,7 +4,7 @@ plugins {
     id("maven-publish")
 }
 
-version = "0.0.2-SNAPSHOT"
+version = "0.0.1-SNAPSHOT"
 
 dependencies {
     // spring
@@ -20,15 +20,15 @@ dependencies {
     api("org.yaml:snakeyaml:1.33")
 
     // maven resolver
-    api("org.apache.maven.resolver:maven-resolver-api:1.9.2")
-    api("org.apache.maven.resolver:maven-resolver-impl:1.9.2")
-    api("org.apache.maven:maven-resolver-provider:3.8.6")
-    api("org.apache.maven.resolver:maven-resolver-transport-http:1.9.2")
-    api("org.apache.maven.resolver:maven-resolver-transport-file:1.9.2")
-    api("org.apache.maven.resolver:maven-resolver-connector-basic:1.9.2")
+    api("org.apache.maven:maven-resolver-provider:3.8.7")
+    api("org.apache.maven.resolver:maven-resolver-transport-http:1.9.4")
+    api("org.apache.maven.resolver:maven-resolver-transport-file:1.9.4")
+    api("org.apache.maven.resolver:maven-resolver-connector-basic:1.9.4")
+
+    // log
+    api("ch.qos.logback:logback-classic:1.4.5")
 
     // asm
-    api("org.ow2.asm:asm:9.4")
     api("org.ow2.asm:asm-commons:9.4")
 }
 

@@ -19,14 +19,14 @@ package pres.ketikai.hyper.gradle.util
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.compile.JavaCompile
-import pres.ketikai.hyper.gradle.util.bukkit.boot.task.HyperBukkit
-import pres.ketikai.hyper.gradle.util.report.dependency.task.DependencyReport
+import pres.ketikai.hyper.gradle.util.bukkit.task.HyperBukkit
+import pres.ketikai.hyper.gradle.util.bukkit.entity.Libraries
 
 /**
  * <p>Gradle 工具</p>
  *
  * <p>Created on 2022-12-24 00:11</p>
- * @see DependencyReport
+ * @see Libraries
  * @author ketikai
  * @since 1.0.0
  * @version 1.0.0
@@ -37,7 +37,6 @@ class HyperGradleUtil : Plugin<Project> {
         target.tasks.withType(JavaCompile::class.java) {
             it.options.compilerArgs.add("-parameters")
         }
-        target.tasks.create("dependencyReport", DependencyReport::class.java)
         target.tasks.create("hyperBukkit", HyperBukkit::class.java)
     }
 }

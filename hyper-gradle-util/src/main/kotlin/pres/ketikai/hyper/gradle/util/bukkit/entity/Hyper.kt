@@ -14,21 +14,29 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.util
+package pres.ketikai.hyper.gradle.util.bukkit.entity
 
-import org.gradle.api.tasks.TaskContainer
-import org.gradle.api.tasks.TaskProvider
-import pres.ketikai.hyper.gradle.util.bukkit.task.HyperBukkit
+import org.gradle.api.Project
+import org.gradle.api.provider.Property
+import java.io.File
 
 /**
- * <p>在任务容器中声明并赋值 Hyper Tasks</p>
+ * <p>hyper 增强对应配置实体</p>
  *
- * <p>Created on 2023/1/7 17:44</p>
+ * <p>Created on 2023/1/23 19:43</p>
  * @author ketikai
  * @since 0.0.1
  * @version 0.0.1
  */
-val TaskContainer.hyperBukkit: TaskProvider<HyperBukkit>
-    get() {
-        return named("hyperBukkit", HyperBukkit::class.java)
+class Hyper(project: Project) {
+
+    val baseClassesFile = File("${project.buildDir}/classes/java/main")
+
+    private val objectFactory = project.objects
+
+    val moreLifeEvents: Property<Boolean> = objectFactory.property(Boolean::class.java)
+
+    init {
+        moreLifeEvents.set(false)
     }
+}

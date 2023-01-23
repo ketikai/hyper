@@ -1,6 +1,29 @@
-import pres.ketikai.hyper.gradle.util.bukkit.boot.BukkitLoadType
-import pres.ketikai.hyper.gradle.util.dependencyReport
 import pres.ketikai.hyper.gradle.util.hyperBukkit
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            name = "aliyun-public"
+            url = uri("https://maven.aliyun.com/repository/public")
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("pres.ketikai.hyper:hyper-gradle-util:1.0.6-SNAPSHOT")
+    }
+}
+
+apply {
+    if (project.name != "hyper-gradle-util") {
+        try {
+            plugin("hyper-gradle-util")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+}
 
 plugins {
     id("java")
@@ -27,16 +50,13 @@ dependencies {
     compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
 
     // hyper-libs
+    api(project(":hyper-libs:hyper-commons"))
     api(project(":hyper-libs:hyper-annotations"))
     api(project(":hyper-libs:hyper-commands"))
-    api(project(":hyper-libs:hyper-commons"))
     api(project(":hyper-libs:hyper-events-listeners"))
     api(project(":hyper-libs:hyper-resources"))
     api(project(":hyper-libs:hyper-stores"))
     api(project(":hyper-libs:hyper-tasks-executors"))
-
-    // aop
-    implementation("org.springframework:spring-aop:6.0.3")
 
     // security
     implementation("org.springframework.security:spring-security-crypto:6.0.1")
@@ -54,23 +74,23 @@ tasks.withType<JavaCompile> {
 }
 
 tasks.hyperBukkit {
-    dependsOn(tasks.classes)
-    enabled = true
-    hyper.set(true)
-    main.set("pres.ketikai.hyper.manager.HyperManager")
-    apiVersion.set("1.18")
-    description.set("提供基于 Hyper 的插件增强管理")
-    authors.add("ketikai")
-    load.set(BukkitLoadType.STARTUP)
-}
-
-tasks.dependencyReport {
-    dependsOn(tasks.classes)
+    pluginYaml {
+        main.set("pres.ketikai.hyper.manager.HyperManager")
+        apiVersion.set("1.18")
+        description.set("提供基于 Hyper 的插件增强管理")
+        authors.add("ketikai")
+        load.set("STARTUP")
+    }
 }
 
 tasks.jar {
-    dependsOn(tasks.hyperBukkit, tasks.dependencyReport)
-    destinationDirectory.set(file("D:/JetBrains/IDEA Projects/1.18.2/plugins"))
+    dependsOn(tasks.hyperBukkit)
+    val targetDir = file("D:/JetBrains/IDEA Projects/1.18.2/plugins")
+    val targetFile = File(targetDir, "${project.name}-${project.version}.jar")
+    if (targetFile.exists()) {
+        targetFile.delete()
+    }
+    destinationDirectory.set(targetDir)
 }
 
 tasks.withType<Javadoc> {
@@ -90,13 +110,6 @@ tasks.create<Jar>("sourcesJar") {
     from(sourceSets.main.get().allSource)
 }
 
-tasks.create<Jar>("javadocJar") {
-    dependsOn(tasks.javadoc)
-    charset(utf8)
-    archiveClassifier.set("javadoc")
-    from(tasks.javadoc.get().destinationDir)
-}
-
 tasks.withType<Test> {
     useJUnitPlatform()
 }
@@ -107,7 +120,6 @@ publishing {
             from(components["java"])
 
             artifact(tasks["sourcesJar"])
-            artifact(tasks["javadocJar"])
         }
     }
 

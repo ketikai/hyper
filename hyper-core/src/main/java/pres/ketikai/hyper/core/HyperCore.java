@@ -20,7 +20,8 @@ package pres.ketikai.hyper.core;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import pres.ketikai.hyper.annotations.HyperPlugin;
-import pres.ketikai.hyper.core.resource.Resources;
+import pres.ketikai.hyper.core.libraries.Libraries;
+import pres.ketikai.hyper.core.resources.Resources;
 
 /**
  * <p>插件入口</p>
@@ -46,6 +47,7 @@ public final class HyperCore extends JavaPlugin {
     @Override
     public void onLoad() {
         Resources.save(this, false);
+        Libraries.loadLibraries(this);
     }
 
     @Override

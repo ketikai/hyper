@@ -14,21 +14,21 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.util
-
-import org.gradle.api.tasks.TaskContainer
-import org.gradle.api.tasks.TaskProvider
-import pres.ketikai.hyper.gradle.util.bukkit.task.HyperBukkit
+package pres.ketikai.hyper.gradle.util.bukkit.asm
 
 /**
- * <p>在任务容器中声明并赋值 Hyper Tasks</p>
+ * <p>HyperBukkit 增强相关常量</p>
  *
- * <p>Created on 2023/1/7 17:44</p>
+ * <p>Created on 2023/1/5 16:58</p>
  * @author ketikai
  * @since 0.0.1
  * @version 0.0.1
  */
-val TaskContainer.hyperBukkit: TaskProvider<HyperBukkit>
-    get() {
-        return named("hyperBukkit", HyperBukkit::class.java)
+class BukkitUtilType {
+
+    companion object {
+        const val EVENT_UTILS = "pres/ketikai/hyper/manager/event/Events"
     }
+
+    private constructor()
+}

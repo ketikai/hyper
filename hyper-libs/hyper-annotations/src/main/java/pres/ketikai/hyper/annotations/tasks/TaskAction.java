@@ -14,21 +14,22 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.util
+package pres.ketikai.hyper.annotations.tasks;
 
-import org.gradle.api.tasks.TaskContainer
-import org.gradle.api.tasks.TaskProvider
-import pres.ketikai.hyper.gradle.util.bukkit.task.HyperBukkit
+import java.lang.annotation.*;
 
 /**
- * <p>在任务容器中声明并赋值 Hyper Tasks</p>
+ * <p>用于标记任务执行的主方法</p>
+ * 该注解仅在任务类型中的公共非静态方法上有效，且同一个类中只能存在一个
  *
- * <p>Created on 2023/1/7 17:44</p>
+ * <p>Created on 2023/1/13 4:31</p>
+ *
  * @author ketikai
- * @since 0.0.1
  * @version 0.0.1
+ * @since 0.0.1
  */
-val TaskContainer.hyperBukkit: TaskProvider<HyperBukkit>
-    get() {
-        return named("hyperBukkit", HyperBukkit::class.java)
-    }
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface TaskAction {
+}

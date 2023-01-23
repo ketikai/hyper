@@ -1,0 +1,11 @@
+resources:
+  auto-update-delay: 100
+libraries:
+  repositories:
+    remote:
+      aliyun:
+        url: ""
+      ketikai:
+        url: ""
+        username: ""
+        password: ""

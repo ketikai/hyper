@@ -42,7 +42,7 @@
 |------------------------|---------------------------|--------------------|
 | hyper-logo             | hyper 项目集的专属 logo         | 无                  |
 | hyper-gradle-util      | 开发 hyper 插件时必装的 gradle 插件 | Apache 2.0 License |
-| hyper-commons          | 公共工具相关                    | Apache 2.0 License |
+| hyper-commons          | 统一管理公共工具、依赖库              | Apache 2.0 License |
 | hyper-annotations      | 全局注解相关                    | Apache 2.0 License |
 | hyper-events-listeners | 事件与监听器相关                  | Apache 2.0 License |
 | hyper-commands         | 命令相关                      | Apache 2.0 License |

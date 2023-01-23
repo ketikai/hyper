@@ -1,6 +1,5 @@
 plugins {
     kotlin("jvm") version "1.7.22"
-    id("org.jetbrains.dokka") version "1.7.20"
     id("java-gradle-plugin")
     id("maven-publish")
 }
@@ -8,7 +7,14 @@ plugins {
 version = "1.0.6-SNAPSHOT"
 
 dependencies {
-    api(project(":hyper-libs:hyper-commons"))
+    // maven-resolver
+    api("org.apache.maven.resolver:maven-resolver-api:1.9.4")
+
+    // snakeyaml
+    api("org.yaml:snakeyaml:1.33")
+
+    // asm
+    api("org.ow2.asm:asm-commons:9.4")
 }
 
 gradlePlugin {
@@ -31,22 +37,11 @@ tasks.withType<JavaCompile> {
     options.encoding = utf8
 }
 
-tasks.dokkaHtml {
-    charset(utf8)
-}
-
 tasks.create<Jar>("sourcesJar") {
     dependsOn(tasks.classes)
     charset(utf8)
     archiveClassifier.set("sources")
     from(sourceSets.main.get().allSource)
-}
-
-tasks.create<Jar>("dokkadocJar") {
-    dependsOn(tasks.dokkaHtml)
-    charset(utf8)
-    archiveClassifier.set("dokkadoc")
-    from(tasks.dokkaHtml.get().outputDirectory.get().absoluteFile)
 }
 
 publishing {
@@ -55,7 +50,6 @@ publishing {
             from(components["java"])
 
             artifact(tasks["sourcesJar"])
-            artifact(tasks["dokkadocJar"])
         }
     }
 

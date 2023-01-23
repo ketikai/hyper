@@ -75,7 +75,7 @@ public final class UnsafeURLClassLoader {
         WRAPPER_CACHES.remove(key);
     }
 
-    public synchronized void invoke(URL url) {
+    public synchronized void addURL(URL url) {
         if (closed || url == null) {
             return;
         }

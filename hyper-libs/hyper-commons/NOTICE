@@ -34,3 +34,11 @@ The text of each license is also included at ./licenses/LICENSE-(project).
 
    proto files from ow2: https://gitlab.ow2.org/asm/asm (BSD 3-Clause)
 ========================================================================
+LGPL licenses
+========================================================================
+
+The following components are provided under a LGPL license. See project link for details.
+The text of each license is also included at ./licenses/LICENSE-(project).
+
+   proto files from qos-ch: https://github.com/qos-ch/logback (LGBLv2.1)
+========================================================================

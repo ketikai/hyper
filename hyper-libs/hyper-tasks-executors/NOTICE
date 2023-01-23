@@ -20,7 +20,7 @@ Apache 2.0 licenses
 The following components are provided under the Apache License. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   (Up to now, the hyper-tasks-executor project has not referenced components provided by this license.)
+   proto files from ketikai: https://github.com/ketikai/hyper (Apache 2.0 license)
 ========================================================================
 BSD licenses
 ========================================================================

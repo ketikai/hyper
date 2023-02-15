@@ -12,7 +12,3 @@ subprojects {
         mavenCentral()
     }
 }
-
-tasks.create<Delete>("cleanBuild") {
-    setDelete(file("$rootDir/build"))
-}

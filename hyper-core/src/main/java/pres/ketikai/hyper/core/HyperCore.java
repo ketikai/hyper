@@ -17,11 +17,10 @@
 
 package pres.ketikai.hyper.core;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import pres.ketikai.hyper.annotations.HyperPlugin;
-import pres.ketikai.hyper.core.libraries.Libraries;
-import pres.ketikai.hyper.core.resources.Resources;
+import org.springframework.util.Assert;
 
 /**
  * <p>插件入口</p>
@@ -31,32 +30,50 @@ import pres.ketikai.hyper.core.resources.Resources;
  * @version 0.0.1
  * @since 0.0.1
  */
-@HyperPlugin
 public final class HyperCore extends JavaPlugin {
 
     private static Plugin instance;
 
     public static Plugin getInstance() {
-        return instance;
-    }
+        Assert.notNull(instance, "instance is not ready yet");
 
-    private static void setInstance(Plugin instance) {
-        HyperCore.instance = instance;
+        return instance;
     }
 
     @Override
     public void onLoad() {
-        Resources.save(this, false);
-        Libraries.loadLibraries(this);
+    }
+
+    private static void sendBanner() {
+        Bukkit.getConsoleSender().sendMessage(
+                "",
+                " §b.__",
+                " §b|  |__ ___.__.______   ___________",
+                " §b|  |  <   |  |\\____ \\_/ __ \\_  __ \\",
+                " §b|   Y  \\___  ||  |_> >  ___/|  | \\/",
+                " §b|___|  / ____||   __/ \\___  >__|",
+                " §b     \\/\\/     |__|        \\/",
+                ""
+        );
     }
 
     @Override
     public void onEnable() {
-        setInstance(this);
+        // banner
+        sendBanner();
+        // set init var
+        {
+            instance = this;
+        }
+        // agent
+        System.out.println(Bukkit.getPluginManager().getClass().getClassLoader());
     }
 
     @Override
     public void onDisable() {
-        setInstance(null);
+        // unset init var
+        {
+            instance = null;
+        }
     }
 }

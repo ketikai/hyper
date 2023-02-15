@@ -1,23 +1,13 @@
 plugins {
-    kotlin("jvm") version "1.7.22"
-    id("java-gradle-plugin")
+    id("java")
+    id("java-library")
     id("maven-publish")
 }
 
-version = "1.0.7"
+version = "0.0.1-SNAPSHOT"
 
 dependencies {
-    // snakeyaml
-    api("org.yaml:snakeyaml:1.33")
-}
-
-gradlePlugin {
-    plugins {
-        create("HyperGradleUtil") {
-            id = "hyper-gradle-util"
-            implementationClass = "pres.ketikai.hyper.gradle.util.HyperGradleUtil"
-        }
-    }
+    api(project(":hyper-libs:hyper-commons"))
 }
 
 java {
@@ -25,7 +15,6 @@ java {
 }
 
 val utf8 = "UTF-8"
-
 tasks.withType<JavaCompile> {
     options.encoding = utf8
 }
@@ -35,14 +24,6 @@ tasks.create<Jar>("sourcesJar") {
     charset(utf8)
     archiveClassifier.set("sources")
     from(sourceSets.main.get().allSource)
-}
-
-tasks.create<Delete>("cleanBuildDir") {
-    setDelete(file("$rootDir/build"))
-}
-
-tasks.clean {
-    dependsOn(tasks.named("cleanBuildDir"))
 }
 
 publishing {

@@ -14,30 +14,26 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.util
+package pres.ketikai.hyper.api.agent;
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import org.gradle.api.tasks.compile.JavaCompile
-import pres.ketikai.hyper.gradle.util.configurer.bukkit.LibrariesConfigurer
-import pres.ketikai.hyper.gradle.util.task.HyperBukkit
+import java.lang.instrument.Instrumentation;
 
 /**
- * <p>Hyper Gradle 工具</p>
+ * <p>提供 agent 程序接口</p>
  *
- * <p>Created on 2022-12-24 00:11</p>
+ * <p>Created on 2023/2/12 15:26</p>
  *
- * @see LibrariesConfigurer
  * @author ketikai
+ * @version 0.0.1
  * @since 0.0.1
- * @version 1.0.6
  */
-class HyperGradleUtil : Plugin<Project> {
+public interface IAgent {
 
-    override fun apply(target: Project) {
-        target.tasks.withType(JavaCompile::class.java) {
-            it.options.compilerArgs.add("-parameters")
-        }
-        target.tasks.create("hyperBukkit", HyperBukkit::class.java)
-    }
+    /**
+     * 程序入口
+     *
+     * @param args 参数
+     * @param inst 提供对 java 程序的监测、协助接口
+     */
+    void agentmain(String args, Instrumentation inst);
 }

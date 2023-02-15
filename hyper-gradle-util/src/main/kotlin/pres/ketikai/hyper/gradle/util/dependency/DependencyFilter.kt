@@ -14,30 +14,25 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.util
+package pres.ketikai.hyper.gradle.util.dependency
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import org.gradle.api.tasks.compile.JavaCompile
-import pres.ketikai.hyper.gradle.util.configurer.bukkit.LibrariesConfigurer
-import pres.ketikai.hyper.gradle.util.task.HyperBukkit
+import org.gradle.api.artifacts.ResolvedDependency
+import org.gradle.api.specs.Spec
 
 /**
- * <p>Hyper Gradle 工具</p>
+ * <p>提供依赖过滤器接口</p>
  *
- * <p>Created on 2022-12-24 00:11</p>
+ * <p>Created on 2023/2/14 13:13</p>
  *
- * @see LibrariesConfigurer
  * @author ketikai
- * @since 0.0.1
+ * @since 1.0.6
  * @version 1.0.6
  */
-class HyperGradleUtil : Plugin<Project> {
+interface DependencyFilter {
 
-    override fun apply(target: Project) {
-        target.tasks.withType(JavaCompile::class.java) {
-            it.options.compilerArgs.add("-parameters")
-        }
-        target.tasks.create("hyperBukkit", HyperBukkit::class.java)
-    }
+    fun exclude(spec: Spec<in ResolvedDependency>): DependencyFilter
+
+    fun include(spec: Spec<in ResolvedDependency>): DependencyFilter
+
+    fun isIncluded(dependency: ResolvedDependency): Boolean
 }

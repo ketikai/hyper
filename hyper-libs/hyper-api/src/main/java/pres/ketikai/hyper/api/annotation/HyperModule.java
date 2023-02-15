@@ -14,22 +14,33 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.util
+package pres.ketikai.hyper.api.annotation;
 
-import org.gradle.api.tasks.TaskContainer
-import org.gradle.api.tasks.TaskProvider
-import pres.ketikai.hyper.gradle.util.task.HyperBukkit
+import org.springframework.core.annotation.AliasFor;
+import org.springframework.stereotype.Component;
+
+import java.lang.annotation.*;
 
 /**
- * <p>在任务容器中声明并赋值 Hyper Tasks</p>
- *
- * <p>Created on 2023/1/7 17:44</p>
+ * <p>用于标记需要被管理的模块</p>
+ * 该注解只有在合法的 hyper 模块入口类上才会生效
+ * <p>Created on 2022-12-25 00:42</p>
  *
  * @author ketikai
+ * @version 0.0.1
  * @since 0.0.1
- * @version 1.0.6
  */
-val TaskContainer.hyperBukkit: TaskProvider<HyperBukkit>
-    get() {
-        return named("hyperBukkit", HyperBukkit::class.java)
-    }
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface HyperModule {
+
+    /**
+     * 组件 id
+     *
+     * @return 组件 id
+     * @see Component
+     */
+    @AliasFor(annotation = Component.class)
+    String value() default "";
+}

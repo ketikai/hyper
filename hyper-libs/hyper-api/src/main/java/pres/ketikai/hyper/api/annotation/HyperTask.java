@@ -14,30 +14,22 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.util
+package pres.ketikai.hyper.api.annotation;
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import org.gradle.api.tasks.compile.JavaCompile
-import pres.ketikai.hyper.gradle.util.configurer.bukkit.LibrariesConfigurer
-import pres.ketikai.hyper.gradle.util.task.HyperBukkit
+import java.lang.annotation.*;
 
 /**
- * <p>Hyper Gradle 工具</p>
+ * <p>用于标记任务执行的主方法</p>
+ * 该注解仅在任务类型中的公共非静态方法上有效，且同一个类中只能存在一个
  *
- * <p>Created on 2022-12-24 00:11</p>
+ * <p>Created on 2023/1/13 4:31</p>
  *
- * @see LibrariesConfigurer
  * @author ketikai
+ * @version 0.0.1
  * @since 0.0.1
- * @version 1.0.6
  */
-class HyperGradleUtil : Plugin<Project> {
-
-    override fun apply(target: Project) {
-        target.tasks.withType(JavaCompile::class.java) {
-            it.options.compilerArgs.add("-parameters")
-        }
-        target.tasks.create("hyperBukkit", HyperBukkit::class.java)
-    }
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface HyperTask {
 }

@@ -3,12 +3,13 @@ hyper-core
 Copyright 2023 ketikai
 
 The open source code for this project is currently hosted on GitHub.
-(https://github.com/ketikai/hyper)
+(https://github.com/ketikai/hyper/tree/master/hyper-core)
 
-========================================================================
-hyper-core Subcomponents:
+************************************************************************
 
-The hyper-core project contains subcomponents with separate copyright
+Subcomponents:
+
+This project contains subcomponents with separate copyright
 notices and license terms. Your use of the source code for the these
 subcomponents is subject to the terms and conditions of the following
 licenses.
@@ -22,19 +23,12 @@ The text of each license is also included at ./licenses/LICENSE-(project).
 
    proto files from SpigotMC: https://github.com/SpigotMC/Spigot-API (GPLv3)
 ========================================================================
-Apache 2.0 licenses
+Apache licenses
 ========================================================================
 
 The following components are provided under the Apache License. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   proto files from ketikai: https://github.com/ketikai/hyper (Apache 2.0 license)
-========================================================================
-BSD licenses
-========================================================================
+   proto files from ketikai: https://github.com/ketikai/hyper/tree/master/hyper-api (Apache 2.0)
 
-The following components are provided under a BSD license. See project link for details.
-The text of each license is also included at ./licenses/LICENSE-(project).
-
-   (Up to now, the hyper-core project has not referenced components provided by this license.)
-========================================================================
+************************************************************************

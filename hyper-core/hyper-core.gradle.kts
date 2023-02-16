@@ -67,7 +67,7 @@ dependencies {
     compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
 
     // hyper-libs
-    api(project(":hyper-libs:hyper-api"))
+    api(project(":hyper-libs:hyper-impl"))
 }
 
 val utf8 = "UTF-8"

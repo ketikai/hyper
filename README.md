@@ -30,6 +30,7 @@
 
 ### 📜 简介
 
+* 本插件基于 `spigot-1.18.2` 环境开发
 * 让你更加简单地开发出一个 ` bukkit 插件`
 * 让你的插件功能更加强大
 * ……
@@ -38,13 +39,14 @@
 
 ### 📦 包含组件
 
-| 模块                     | 简介                             | 开源许可证              |
-|------------------------|--------------------------------|--------------------|
-| hyper-logo             | hyper 项目集的专属 logo              | 闭源                 |
-| hyper-gradle-util      | 为 bukkit 插件开发提供配置简化的 gradle 插件 | Apache 2.0 License |
-| hyper-commons          | 统一放置公共工具、依赖库                   | Apache 2.0 License |
-| hyper-api              | 包含基本接口、注解及实现类等内容               | Apache 2.0 License |
-| hyper-core             | hyper 插件在编译和运行时的必要核心前置         | GPLv3              |
+| 模块                | 简介                             | 开源许可证              |
+|-------------------|--------------------------------|--------------------|
+| hyper-logo        | hyper 项目集的专属 logo              | 闭源                 |
+| hyper-gradle-util | 为 bukkit 插件开发提供配置简化的 gradle 插件 | Apache 2.0 License |
+| hyper-commons     | 统一放置公共工具、依赖库                   | Apache 2.0 License |
+| hyper-api         | 包含基本接口、抽象类及注解等内容               | Apache 2.0 License |
+| hyper-impl        | 包含基本接口的实现类等内容                  | Apache 2.0 License |
+| hyper-core        | hyper 插件在编译和运行时的必要核心前置         | GPLv3              |
 
 hyper 插件：指依赖于 hyper 项目下组件的 ` bukkit 插件`
 

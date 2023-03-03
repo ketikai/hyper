@@ -22,6 +22,7 @@ The following components are provided under the GPL License. See project link fo
 The text of each license is also included at ./licenses/LICENSE-(project).
 
    proto files from SpigotMC: https://github.com/SpigotMC/Spigot-API (GPLv3)
+   proto files from ketikai: https://github.com/ketikai/hyper/tree/master/hyper-agent (GPLv3)
 ========================================================================
 Apache licenses
 ========================================================================
@@ -29,6 +30,6 @@ Apache licenses
 The following components are provided under the Apache License. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   proto files from ketikai: https://github.com/ketikai/hyper/tree/master/hyper-api (Apache 2.0)
+   proto files from ketikai: https://github.com/ketikai/hyper/tree/master/hyper-libs/hyper-impl (Apache 2.0)
 
 ************************************************************************

@@ -1,4 +1,4 @@
-import pres.ketikai.hyper.gradle.util.hyperBukkit
+import pres.ketikai.hyper.gradle.plugin.hyperBukkit
 import java.io.ByteArrayOutputStream
 import java.io.FileInputStream
 import java.io.FileNotFoundException
@@ -36,11 +36,11 @@ buildscript {
     }
 
     dependencies {
-        classpath("pres.ketikai.hyper:hyper-gradle-util:1.0.7")
+        classpath("pres.ketikai.hyper:hyper-gradle-plugin:1.0.8-SNAPSHOT")
     }
 }
 
-apply { plugin("hyper-gradle-util") }
+apply { plugin("hyper-gradle-plugin") }
 
 plugins {
     id("java")
@@ -53,6 +53,7 @@ version = "0.0.1-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = sourceCompatibility
 }
 
 repositories {
@@ -63,8 +64,12 @@ repositories {
 }
 
 dependencies {
-    // spigot-mc
-    compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
+//    // spigot-mc
+//    compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
+    // bukkit
+    compileOnly(fileTree("D:/JetBrains/IDEA Projects/1.18.2/bundler/versions"))
+    // bukkit libs
+    compileOnly(fileTree("D:/JetBrains/IDEA Projects/1.18.2/bundler/libraries"))
 
     // hyper-libs
     api(project(":hyper-libs:hyper-impl"))
@@ -87,14 +92,21 @@ tasks.hyperBukkit {
         libraries {
             filter {
                 include { it ->
-                    if (it.moduleArtifacts.isNotEmpty()) {
-                        it.moduleArtifacts.forEach {
-                            if (it.id.componentIdentifier.displayName.startsWith("project :")) {
-                                return@include false
+                    if (
+                        it.parents.size == 1 &&
+                        it.parents.filter {
+                            it.name.startsWith("pres.ketikai.hyper:hyper-core:")
+                        }.size == 1
+                    ) {
+                        if (it.moduleArtifacts.isNotEmpty()) {
+                            it.moduleArtifacts.forEach {
+                                if (!it.id.componentIdentifier.displayName.startsWith("project :")) {
+                                    return@include true
+                                }
                             }
                         }
                     }
-                    return@include true
+                    return@include false
                 }
             }
         }
@@ -132,7 +144,7 @@ tasks.shadowJar {
     }
 
     doLast {
-        val agentProject = project(":hyper-libs:hyper-agent")
+        val agentProject = project(":hyper-agent")
         val agentFile = File(
             agentProject.buildDir,
             "libs/${agentProject.name}-${agentProject.version}.jar"
@@ -152,7 +164,7 @@ tasks.shadowJar {
         jos.closeEntry()
         destJar.stream().forEach {
             it ?: return@forEach
-            if (it.realName == destEntryName) {
+            if (it.name == destEntryName) {
                 return@forEach
             }
             val inputStream = destJar.getInputStream(it)

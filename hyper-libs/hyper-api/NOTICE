@@ -3,7 +3,7 @@ hyper-api
 Copyright 2023 ketikai
 
 The open source code for this project is currently hosted on GitHub.
-(https://github.com/ketikai/hyper/tree/master/hyper-api)
+(https://github.com/ketikai/hyper/tree/master/hyper-libs/hyper-api)
 
 ************************************************************************
 
@@ -15,12 +15,12 @@ subcomponents is subject to the terms and conditions of the following
 licenses.
 
 ========================================================================
-Apache 2.0 licenses
+Apache licenses
 ========================================================================
 
 The following components are provided under the Apache License. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   proto files from ketikai: https://github.com/ketikai/hyper/tree/master/hyper-commons (Apache 2.0)
+   proto files from ketikai: https://github.com/ketikai/hyper/tree/master/hyper-libs/hyper-commons (Apache 2.0)
 
 ************************************************************************

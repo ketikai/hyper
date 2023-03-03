@@ -7,12 +7,12 @@ plugins {
 version = "0.0.1-SNAPSHOT"
 
 dependencies {
+//    // spring
+//    api("org.springframework:spring-context:6.0.4")
+//    api("org.springframework:spring-aspects:6.0.4")
 
-    api("jakarta.annotation:jakarta.annotation-api:2.1.1")
-
-    // spring
-    api("org.springframework:spring-context:6.0.4")
-    api("org.springframework:spring-aspects:6.0.4")
+    // asm
+    api("org.ow2.asm:asm-commons:9.4")
 
     // jackson
     api("com.fasterxml.jackson.core:jackson-databind:2.14.1")
@@ -21,17 +21,17 @@ dependencies {
     api("com.fasterxml.jackson.module:jackson-module-parameter-names:2.14.1")
 
     // snakeyaml
-    api("org.yaml:snakeyaml:1.33")
+    api("org.yaml:snakeyaml:2.0")
 
-    // log
-    api("ch.qos.logback:logback-classic:1.4.5")
+    // log4j-slf4j2
+    api("org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0")
 
-    // asm
-    api("org.ow2.asm:asm-commons:9.4")
+//    testImplementation("org.fusesource.jansi:jansi:2.4.0")
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = sourceCompatibility
 }
 
 val utf8 = "UTF-8"

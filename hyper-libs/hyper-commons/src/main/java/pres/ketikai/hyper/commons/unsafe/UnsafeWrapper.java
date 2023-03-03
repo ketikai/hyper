@@ -16,7 +16,7 @@
 
 package pres.ketikai.hyper.commons.unsafe;
 
-import org.springframework.util.Assert;
+import pres.ketikai.hyper.commons.asserts.Asserts;
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
@@ -58,9 +58,9 @@ public abstract class UnsafeWrapper {
      * @throws NoSuchFieldException 字段不存在时抛出
      */
     public static Object getValue(Object object, String fieldName) throws NoSuchFieldException {
-        Assert.notNull(UNSAFE, "UNSAFE must not be null");
-        Assert.notNull(object, "object must not be null");
-        Assert.hasText(fieldName, "fieldName must be a valid string");
+        Asserts.notNull(UNSAFE, "UNSAFE must not be null");
+        Asserts.notNull(object, "object must not be null");
+        Asserts.hasText(fieldName, "fieldName must be a valid text");
 
         return getValue(object, object.getClass().getDeclaredField(fieldName));
     }
@@ -75,10 +75,10 @@ public abstract class UnsafeWrapper {
      * @throws NoSuchFieldException 字段不存在时抛出
      */
     public static Object getValue(Class<?> clazz, Object object, String fieldName) throws NoSuchFieldException {
-        Assert.notNull(UNSAFE, "UNSAFE must not be null");
-        Assert.notNull(clazz, "clazz must not be null");
-        Assert.notNull(object, "object must not be null");
-        Assert.hasText(fieldName, "fieldName must be a valid string");
+        Asserts.notNull(UNSAFE, "UNSAFE must not be null");
+        Asserts.notNull(clazz, "clazz must not be null");
+        Asserts.notNull(object, "object must not be null");
+        Asserts.hasText(fieldName, "fieldName must be a valid text");
 
         return getValue(object, clazz.getDeclaredField(fieldName));
     }
@@ -92,9 +92,9 @@ public abstract class UnsafeWrapper {
      * @throws NoSuchFieldException 字段不存在时抛出
      */
     public static Object getStaticValue(Class<?> clazz, String fieldName) throws NoSuchFieldException {
-        Assert.notNull(UNSAFE, "UNSAFE must not be null");
-        Assert.notNull(clazz, "clazz must not be null");
-        Assert.hasText(fieldName, "fieldName must be a valid string");
+        Asserts.notNull(UNSAFE, "UNSAFE must not be null");
+        Asserts.notNull(clazz, "clazz must not be null");
+        Asserts.hasText(fieldName, "fieldName must be a valid text");
 
         final Field field = clazz.getDeclaredField(fieldName);
         return getStaticValue(UNSAFE.staticFieldBase(field), field);
@@ -108,8 +108,8 @@ public abstract class UnsafeWrapper {
      * @return 字段值
      */
     public static Object getValue(Object object, Field field) {
-        Assert.notNull(object, "object must not be null");
-        Assert.notNull(field, "field must not be null");
+        Asserts.notNull(object, "object must not be null");
+        Asserts.notNull(field, "field must not be null");
 
         return getValue(object, field.getType(), UNSAFE.objectFieldOffset(field));
     }
@@ -122,7 +122,7 @@ public abstract class UnsafeWrapper {
      * @return 字段值
      */
     public static Object getStaticValue(Object fieldBase, Field field) {
-        Assert.notNull(field, "field must not be null");
+        Asserts.notNull(field, "field must not be null");
 
         return getValue(fieldBase, field.getType(), UNSAFE.staticFieldOffset(field));
     }
@@ -168,13 +168,13 @@ public abstract class UnsafeWrapper {
      *
      * @param object    字段所属对象
      * @param fieldName 字段名
-     * @param newValue 新值
+     * @param newValue  新值
      * @throws NoSuchFieldException 字段不存在时抛出
      */
     public static void putValue(Object object, String fieldName, Object newValue) throws NoSuchFieldException {
-        Assert.notNull(UNSAFE, "UNSAFE must not be null");
-        Assert.notNull(object, "object must not be null");
-        Assert.hasText(fieldName, "fieldName must be a valid string");
+        Asserts.notNull(UNSAFE, "UNSAFE must not be null");
+        Asserts.notNull(object, "object must not be null");
+        Asserts.hasText(fieldName, "fieldName must be a valid text");
 
         putValue(object, object.getClass().getDeclaredField(fieldName), newValue);
     }
@@ -185,14 +185,14 @@ public abstract class UnsafeWrapper {
      * @param object    字段所属对象
      * @param clazz     字段所属类
      * @param fieldName 字段名
-     * @param newValue 新值
+     * @param newValue  新值
      * @throws NoSuchFieldException 字段不存在时抛出
      */
     public static void putValue(Class<?> clazz, Object object, String fieldName, Object newValue) throws NoSuchFieldException {
-        Assert.notNull(UNSAFE, "UNSAFE must not be null");
-        Assert.notNull(clazz, "clazz must not be null");
-        Assert.notNull(object, "object must not be null");
-        Assert.hasText(fieldName, "fieldName must be a valid string");
+        Asserts.notNull(UNSAFE, "UNSAFE must not be null");
+        Asserts.notNull(clazz, "clazz must not be null");
+        Asserts.notNull(object, "object must not be null");
+        Asserts.hasText(fieldName, "fieldName must be a valid text");
 
         putValue(object, clazz.getDeclaredField(fieldName), newValue);
     }
@@ -206,9 +206,9 @@ public abstract class UnsafeWrapper {
      * @throws NoSuchFieldException 字段不存在时抛出
      */
     public static void putStaticValue(Class<?> clazz, String fieldName, Object newValue) throws NoSuchFieldException {
-        Assert.notNull(UNSAFE, "UNSAFE must not be null");
-        Assert.notNull(clazz, "clazz must not be null");
-        Assert.hasText(fieldName, "fieldName must be a valid string");
+        Asserts.notNull(UNSAFE, "UNSAFE must not be null");
+        Asserts.notNull(clazz, "clazz must not be null");
+        Asserts.hasText(fieldName, "fieldName must be a valid text");
 
         final Field field = clazz.getDeclaredField(fieldName);
         putStaticValue(UNSAFE.staticFieldBase(field), field, newValue);
@@ -222,8 +222,8 @@ public abstract class UnsafeWrapper {
      * @param newValue 新值
      */
     public static void putValue(Object object, Field field, Object newValue) {
-        Assert.notNull(object, "object must not be null");
-        Assert.notNull(field, "field must not be null");
+        Asserts.notNull(object, "object must not be null");
+        Asserts.notNull(field, "field must not be null");
 
         UNSAFE.putObject(object, UNSAFE.objectFieldOffset(field), newValue);
     }
@@ -236,7 +236,7 @@ public abstract class UnsafeWrapper {
      * @param newValue  新值
      */
     public static void putStaticValue(Object fieldBase, Field field, Object newValue) {
-        Assert.notNull(field, "field must not be null");
+        Asserts.notNull(field, "field must not be null");
 
         UNSAFE.putObject(fieldBase, UNSAFE.staticFieldOffset(field), newValue);
     }

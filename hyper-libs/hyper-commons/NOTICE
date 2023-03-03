@@ -3,7 +3,7 @@ hyper-commons
 Copyright 2023 ketikai
 
 The open source code for this project is currently hosted on GitHub.
-(https://github.com/ketikai/hyper/tree/master/hyper-commons)
+(https://github.com/ketikai/hyper/tree/master/hyper-libs/hyper-commons)
 
 ************************************************************************
 
@@ -21,9 +21,9 @@ Apache licenses
 The following components are provided under the Apache License. See project link for details.
 The text of each license is also included at ./licenses/LICENSE-(project).
 
-   proto files from spring: https://github.com/spring-projects/spring-framework (Apache 2.0)
    proto files from FasterXML: https://github.com/FasterXML/jackson (Apache 2.0)
    proto files from snakeyaml: https://github.com/snakeyaml/snakeyaml (Apache 2.0)
+   proto files from apache: https://github.com/apache/logging-log4j2 (Apache 2.0)
 ========================================================================
 BSD licenses
 ========================================================================
@@ -32,13 +32,5 @@ The following components are provided under the BSD license. See project link fo
 The text of each license is also included at ./licenses/LICENSE-(project).
 
    proto files from ow2: https://gitlab.ow2.org/asm/asm (BSD 3-Clause)
-========================================================================
-LGPL licenses
-========================================================================
-
-The following components are provided under the LGPL license. See project link for details.
-The text of each license is also included at ./licenses/LICENSE-(project).
-
-   proto files from qos-ch: https://github.com/qos-ch/logback (LGBLv2.1)
 
 ************************************************************************

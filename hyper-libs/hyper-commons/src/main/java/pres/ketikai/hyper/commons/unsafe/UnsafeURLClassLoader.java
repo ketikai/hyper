@@ -16,7 +16,7 @@
 
 package pres.ketikai.hyper.commons.unsafe;
 
-import org.springframework.util.Assert;
+import pres.ketikai.hyper.commons.asserts.Asserts;
 import sun.misc.Unsafe;
 
 import java.net.URL;
@@ -58,7 +58,7 @@ public final class UnsafeURLClassLoader {
      */
     @SuppressWarnings({"unchecked"})
     public static UnsafeURLClassLoader wrap(URLClassLoader ucl) {
-        Assert.notNull(ucl, "ucl must not be null");
+        Asserts.notNull(ucl, "ucl must not be null");
 
         if (CACHES.containsKey(ucl)) {
             return CACHES.get(ucl);

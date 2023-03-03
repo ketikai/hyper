@@ -20,7 +20,6 @@ package pres.ketikai.hyper.core;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.springframework.util.Assert;
 
 /**
  * <p>插件入口</p>
@@ -35,13 +34,7 @@ public final class HyperCore extends JavaPlugin {
     private static Plugin instance;
 
     public static Plugin getInstance() {
-        Assert.notNull(instance, "instance is not ready yet");
-
         return instance;
-    }
-
-    @Override
-    public void onLoad() {
     }
 
     private static void sendBanner() {
@@ -55,6 +48,10 @@ public final class HyperCore extends JavaPlugin {
                 " §b     \\/\\/     |__|        \\/",
                 ""
         );
+    }
+
+    @Override
+    public void onLoad() {
     }
 
     @Override

@@ -19,7 +19,7 @@ package pres.ketikai.hyper.api.agent;
 import java.lang.instrument.Instrumentation;
 
 /**
- * <p>提供 agent 程序接口</p>
+ * <p>提供 agent 程序相关接口</p>
  *
  * <p>Created on 2023/2/12 15:26</p>
  *

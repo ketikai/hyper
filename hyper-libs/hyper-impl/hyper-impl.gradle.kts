@@ -12,6 +12,7 @@ dependencies {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = sourceCompatibility
 }
 
 val utf8 = "UTF-8"

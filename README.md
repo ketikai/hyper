@@ -134,8 +134,7 @@ hyper 插件：指依赖于 hyper 项目下组件的 ` bukkit 插件`
 
 > 🔔
 >
-在贡献之前，你应该先了解对应子组件所使用的开源许可证内容和 [Developer Certificate of Origin](https://developercertificate.org)
-> 协议
+> 在贡献之前，你应该先了解对应子组件所使用的开源许可证内容和 [Developer Certificate of Origin](https://developercertificate.org) 协议
 
 #### 📏 一些规范
 

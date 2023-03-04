@@ -27,6 +27,7 @@ import java.lang.annotation.*;
  *
  * @author ketikai
  * @version 0.0.1
+ * @see ICommand
  * @since 0.0.1
  */
 @Target({ElementType.TYPE})

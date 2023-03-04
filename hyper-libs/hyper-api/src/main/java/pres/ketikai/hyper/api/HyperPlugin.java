@@ -49,12 +49,11 @@ public @interface HyperPlugin {
     String description() default "";
 
     /**
-     * 插件版本<br>
-     * 默认为 unknown
+     * 插件版本
      *
      * @return 插件版本
      */
-    String version() default "unknown";
+    String version() default "";
 
     /**
      * 插件基于哪个版本的 api 开发

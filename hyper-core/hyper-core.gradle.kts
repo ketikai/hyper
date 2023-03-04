@@ -1,4 +1,4 @@
-import pres.ketikai.hyper.gradle.plugin.hyperBukkit
+import pres.ketikai.hyper.gradle.plugin.hyper
 import java.io.ByteArrayOutputStream
 import java.io.FileInputStream
 import java.io.FileNotFoundException
@@ -81,29 +81,18 @@ tasks.withType<JavaCompile> {
     options.encoding = utf8
 }
 
-tasks.hyperBukkit {
-    pluginYaml {
-        main = "pres.ketikai.hyper.core.HyperCore"
-        apiVersion = "1.18"
-        description = "为基于 Hyper 的 bukkit 插件提供开发简化和功能增强"
-        load = "STARTUP"
-        authors.add("ketikai")
-
+tasks.hyper {
+    plugin {
         libraries {
             filter {
                 include { it ->
-                    if (
-                        it.parents.size == 1 &&
-                        it.parents.filter {
-                            it.name.startsWith("pres.ketikai.hyper:hyper-core:")
-                        }.size == 1
-                    ) {
-                        if (it.moduleArtifacts.isNotEmpty()) {
-                            it.moduleArtifacts.forEach {
-                                if (!it.id.componentIdentifier.displayName.startsWith("project :")) {
-                                    return@include true
-                                }
+                    if (it.parents.stream().anyMatch { it.name.startsWith("pres.ketikai.hyper:hyper-") }) {
+                        if (it.moduleArtifacts.isNotEmpty() &&
+                            it.moduleArtifacts.stream().allMatch {
+                                !it.id.componentIdentifier.displayName.startsWith("project :")
                             }
+                        ) {
+                            return@include true
                         }
                     }
                     return@include false
@@ -114,7 +103,7 @@ tasks.hyperBukkit {
 }
 
 tasks.shadowJar {
-    dependsOn(tasks.hyperBukkit)
+    dependsOn(tasks.hyper)
 
     archiveBaseName.set("Hyper")
     archiveClassifier.set("")
@@ -124,9 +113,13 @@ tasks.shadowJar {
         throw FileNotFoundException(propsFile.absolutePath)
     }
     val props = Properties()
-    val fis = FileInputStream(propsFile)
-    props.load(fis)
-    fis.close()
+    var fis: FileInputStream? = null
+    try {
+        fis = FileInputStream(propsFile)
+        props.load(fis)
+    } finally {
+        fis?.close()
+    }
     val destDir = file(props.getProperty("hyper.all-in-one.dest-dir")!!)
     destinationDirectory.set(destDir)
 
@@ -157,25 +150,30 @@ tasks.shadowJar {
         val destJar = JarFile(destFile)
         val destEntryName = "resources/modules/${agentFile.name}"
 
-        val bos = ByteArrayOutputStream(1024)
-        val jos = JarOutputStream(bos)
-        jos.putNextEntry(JarEntry(destEntryName))
-        jos.write(agentFile.readBytes())
-        jos.closeEntry()
-        destJar.stream().forEach {
-            it ?: return@forEach
-            if (it.name == destEntryName) {
-                return@forEach
-            }
-            val inputStream = destJar.getInputStream(it)
-            val entryBytes = inputStream.readBytes()
-            inputStream.close()
-            jos.putNextEntry(it)
-            jos.write(entryBytes)
+        val bos: ByteArrayOutputStream
+        var jos: JarOutputStream? = null
+        try {
+            bos = ByteArrayOutputStream(1024)
+            jos = JarOutputStream(bos)
+            jos.putNextEntry(JarEntry(destEntryName))
+            jos.write(agentFile.readBytes())
             jos.closeEntry()
+            destJar.stream().forEach {
+                it ?: return@forEach
+                if (it.name == destEntryName) {
+                    return@forEach
+                }
+                val inputStream = destJar.getInputStream(it)
+                val entryBytes = inputStream.readBytes()
+                inputStream.close()
+                jos.putNextEntry(it)
+                jos.write(entryBytes)
+                jos.closeEntry()
+            }
+        } finally {
+            jos?.close()
+            destJar.close()
         }
-        jos.close()
-        destJar.close()
 
         destFile.writeBytes(bos.toByteArray())
 

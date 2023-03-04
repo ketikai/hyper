@@ -20,6 +20,7 @@ package pres.ketikai.hyper.core;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import pres.ketikai.hyper.api.HyperPlugin;
 
 /**
  * <p>插件入口</p>
@@ -29,6 +30,12 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @version 0.0.1
  * @since 0.0.1
  */
+@HyperPlugin(
+        authors = "ketikai",
+        api = "1.18",
+        description = "为基于 Hyper 的 bukkit 插件提供开发简化和功能增强",
+        when = "STARTUP"
+)
 public final class HyperCore extends JavaPlugin {
 
     private static Plugin instance;

@@ -19,8 +19,8 @@ package pres.ketikai.hyper.gradle.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.compile.JavaCompile
-import pres.ketikai.hyper.gradle.plugin.configurer.bukkit.LibrariesConfigurer
-import pres.ketikai.hyper.gradle.plugin.task.HyperBukkit
+import pres.ketikai.hyper.gradle.plugin.configurer.LibrariesConfigurer
+import pres.ketikai.hyper.gradle.plugin.task.Hyper
 
 /**
  * <p>Hyper Gradle 工具</p>
@@ -38,6 +38,6 @@ class HyperGradlePlugin : Plugin<Project> {
         target.tasks.withType(JavaCompile::class.java) {
             it.options.compilerArgs.add("-parameters")
         }
-        target.tasks.create("hyperBukkit", HyperBukkit::class.java)
+        target.tasks.create("hyper", Hyper::class.java)
     }
 }

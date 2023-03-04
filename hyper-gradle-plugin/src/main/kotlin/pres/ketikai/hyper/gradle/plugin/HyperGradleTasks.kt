@@ -18,7 +18,7 @@ package pres.ketikai.hyper.gradle.plugin
 
 import org.gradle.api.tasks.TaskContainer
 import org.gradle.api.tasks.TaskProvider
-import pres.ketikai.hyper.gradle.plugin.task.HyperBukkit
+import pres.ketikai.hyper.gradle.plugin.task.Hyper
 
 /**
  * <p>在任务容器中声明并赋值 Hyper Tasks</p>
@@ -29,7 +29,7 @@ import pres.ketikai.hyper.gradle.plugin.task.HyperBukkit
  * @since 0.0.1
  * @version 1.0.6
  */
-val TaskContainer.hyperBukkit: TaskProvider<HyperBukkit>
+val TaskContainer.hyper: TaskProvider<Hyper>
     get() {
-        return named("hyperBukkit", HyperBukkit::class.java)
+        return named("hyper", Hyper::class.java)
     }

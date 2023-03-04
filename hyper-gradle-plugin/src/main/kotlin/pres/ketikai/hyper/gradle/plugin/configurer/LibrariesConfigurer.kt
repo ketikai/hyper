@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package pres.ketikai.hyper.gradle.plugin.configurer.bukkit
+package pres.ketikai.hyper.gradle.plugin.configurer
 
 import org.gradle.api.Action
 import org.gradle.api.Project

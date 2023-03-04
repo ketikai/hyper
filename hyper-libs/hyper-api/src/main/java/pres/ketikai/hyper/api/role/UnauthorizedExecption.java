@@ -16,41 +16,35 @@
 
 package pres.ketikai.hyper.api.role;
 
-import java.lang.annotation.*;
+import java.util.Arrays;
 
 /**
- * <p>标记方法执行时对指定目标鉴权</p>
+ * <p>无授权异常</p>
  *
- * <p>Created on 2023/3/4 4:22</p>
+ * <p>Created on 2023/3/4 23:59</p>
  *
  * @author ketikai
  * @version 0.0.1
- * @see IRole
- * @see IAuthority
- * @see UnauthorizedExecption
  * @since 0.0.1
  */
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-@Documented
-public @interface Authority {
+public class UnauthorizedExecption extends RuntimeException {
+
+    private final IAuthority[] authorities;
 
     /**
-     * 目标<br>
-     * 指定的方法形参名，目标必须实现了 {@link IRole} 接口，
-     * 否则不会进行任何鉴权操作
-     *
-     * @return 目标
+     * @param authorities 缺少的权限
      */
-    String target();
+    public UnauthorizedExecption(IAuthority... authorities) {
+        super(authorities.length == 0 ? "unauthorized" : "unauthorized " + Arrays.toString(authorities));
+        this.authorities = authorities;
+    }
 
     /**
-     * 所须权限<br>
-     * {@code authority} 表示必须拥有该权限<br>
-     * {@code -authority} 表示必须没有该权限
+     * 获取缺少的权限
      *
-     * @return 所须权限
-     * @see IAuthority
+     * @return 权限
      */
-    String[] authorities();
+    public IAuthority[] getAuthorities() {
+        return authorities;
+    }
 }

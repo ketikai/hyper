@@ -7,8 +7,8 @@ plugins {
 version = "1.0.8-SNAPSHOT"
 
 dependencies {
-    // snakeyaml
-    api("org.yaml:snakeyaml:1.33")
+    api(project(":hyper-libs:hyper-commons"))
+    api(project(":hyper-libs:hyper-api"))
 }
 
 gradlePlugin {

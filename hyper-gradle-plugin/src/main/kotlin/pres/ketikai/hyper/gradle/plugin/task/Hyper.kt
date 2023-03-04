@@ -20,7 +20,7 @@ import org.gradle.api.Action
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
-import pres.ketikai.hyper.gradle.plugin.configurer.bukkit.PluginConfigurer
+import pres.ketikai.hyper.gradle.plugin.configurer.PluginConfigurer
 import java.nio.charset.Charset
 
 /**
@@ -32,7 +32,7 @@ import java.nio.charset.Charset
  * @since 0.0.1
  * @version 1.0.6
  */
-abstract class HyperBukkit : DefaultTask() {
+abstract class Hyper : DefaultTask() {
 
     @Internal
     var charset: Charset? = null
@@ -41,7 +41,7 @@ abstract class HyperBukkit : DefaultTask() {
 
     init {
         super.setGroup("hyper")
-        super.setDescription("简化 bukkit 插件开发")
+        super.setDescription("简化 hyper 插件开发")
         super.dependsOn(project.tasks.named("classes"))
     }
 
@@ -50,7 +50,7 @@ abstract class HyperBukkit : DefaultTask() {
         pluginConfigurer.generateYamlFile(charset ?: Charsets.UTF_8)
     }
 
-    fun pluginYaml(action: Action<PluginConfigurer>): HyperBukkit {
+    fun plugin(action: Action<PluginConfigurer>): Hyper {
         action.execute(pluginConfigurer)
 
         return this

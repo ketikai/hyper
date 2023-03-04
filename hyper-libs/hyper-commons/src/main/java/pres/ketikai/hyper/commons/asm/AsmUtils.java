@@ -20,6 +20,7 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import pres.ketikai.hyper.commons.ArrayUtils;
+import pres.ketikai.hyper.commons.StringUtils;
 import pres.ketikai.hyper.commons.asm.metadata.AnnotationMetadata;
 import pres.ketikai.hyper.commons.asm.metadata.ClassMetadata;
 import pres.ketikai.hyper.commons.asm.metadata.FieldMetadata;
@@ -29,6 +30,9 @@ import pres.ketikai.hyper.commons.asserts.Asserts;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * <p>ASM 相关工具</p>
@@ -85,12 +89,45 @@ public abstract class AsmUtils {
      * @return 类元数据
      */
     public static ClassMetadata getClassMetadata(byte[] classFile, int api, int parsingOptions) {
-        Asserts.isTrue(ArrayUtils.isNullOrEmpty(classFile), "classFile must not be null or empty");
+        Asserts.isTrue(!ArrayUtils.isNullOrEmpty(classFile), "classFile must not be null or empty");
 
         final ClassReader reader = new ClassReader(classFile);
         final DefaultClassRecorder recorder = new DefaultClassRecorder(api);
         reader.accept(recorder, parsingOptions);
         return recorder.getMetadata();
+    }
+
+    /**
+     * 判断类元数据表示的类是否继承自指定的直接父类
+     *
+     * @param classMetadata 类元数据
+     * @param superName     直接父类描述名
+     * @return 类元数据表示的类是否继承自指定的直接父类
+     * @see Type#getInternalName(Class)
+     */
+    public static boolean isExtends(ClassMetadata classMetadata, String superName) {
+        Asserts.notNull(classMetadata, "classMetadata must not be null");
+        Asserts.hasText(superName, "superName must be a valid text");
+
+        return superName.equals(classMetadata.getSuperName());
+    }
+
+    /**
+     * 判断类元数据表示的类是否实现了指定的直接接口
+     *
+     * @param classMetadata  类元数据
+     * @param interfaceNames 直接接口描述名
+     * @return 类元数据表示的类是否实现了指定的直接接口
+     * @see Type#getInternalName(Class)
+     */
+    public static boolean isImplements(ClassMetadata classMetadata, String... interfaceNames) {
+        Asserts.notNull(classMetadata, "classMetadata must not be null");
+        Asserts.isTrue(!ArrayUtils.isNullOrEmpty(interfaceNames), "interfaceNames must not be null or empty");
+        Asserts.isTrue(Arrays.stream(interfaceNames).noneMatch(StringUtils::isNullOrBlank),
+                "interfaceName must be a valid text");
+
+        final List<String> temp = new ArrayList<>(List.of(classMetadata.getInterfaces()));
+        return Arrays.stream(interfaceNames).allMatch(temp::contains);
     }
 
     /**
